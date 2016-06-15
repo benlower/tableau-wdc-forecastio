@@ -1,0 +1,109 @@
+[
+    {"alias": "Location",
+        "id": "location",
+        "columns": [
+            {"id": "latitude", "dataType": "float"},
+            {"id": "longitude", "dataType": "float"},
+            {"id": "timezone", "dataType": "string"},
+            {"id": "offset", "dataType": "float"}
+        ]
+    },
+    {"alias": "Current Weather",
+        "id": "currently",
+        "columns": [
+            { "id": "time", "dataType": "int" },
+            { "id": "summary", "dataType": "string" },
+            { "id": "icon", "dataType": "string" },
+            { "id": "minutelySummary", "dataType": "string" },
+            { "id": "minutelyIcon", "dataType": "string" },
+            { "id": "hourlySummary", "dataType": "string" },
+            { "id": "hourlyIcon", "dataType": "string" },
+            { "id": "dailySummary", "dataType": "string" },
+            { "id": "dailyIcon", "dataType": "string" },
+            { "id": "nearestStormDistance", "dataType": "int" },
+            { "id": "nearestStormBearing", "dataType": "int" },
+            { "id": "precipIntensity", "dataType": "int" },
+            { "id": "precipProbability", "dataType": "int" },
+            { "id": "temperature", "dataType": "float" },
+            { "id": "apparentTemperature", "dataType": "float" },
+            { "id": "dewPoint", "dataType": "float" },
+            { "id": "humidity", "dataType": "float" },
+            { "id": "windSpeed", "dataType": "float" },
+            { "id": "windBearing", "dataType": "int" },
+            { "id": "visibility", "dataType": "int" },
+            { "id": "cloudCover", "dataType": "float" },
+            { "id": "pressure", "dataType": "float" },
+            { "id": "ozone", "dataType": "float" }
+        ]
+    },
+    {"alias": "Minutely",
+        "id": "minutely",
+        "columns": [
+            { "id": "time", "dataType": "int" },
+            { "id": "precipIntensity", "dataType": "int" },
+            { "id": "precipProbability", "dataType": "int" }
+        ]
+    },
+    {"alias": "Hourly",
+        "id": "hourly",
+        "columns": [
+            { "id": "time", "dataType": "int" },
+            { "id": "summary", "dataType": "string" },
+            { "id": "icon", "dataType": "string" },
+            { "id": "precipIntensity", "dataType": "int" },
+            { "id": "precipProbability", "dataType": "int" },
+            { "id": "temperature", "dataType": "float" },
+            { "id": "apparentTemperature", "dataType": "float" },
+            { "id": "dewPoint", "dataType": "float" },
+            { "id": "humidity", "dataType": "float" },
+            { "id": "windSpeed", "dataType": "float" },
+            { "id": "windBearing", "dataType": "int" },
+            { "id": "visibility", "dataType": "int" },
+            { "id": "cloudCover", "dataType": "float" },
+            { "id": "pressure", "dataType": "float" },
+            { "id": "ozone", "dataType": "float" }
+        ]
+    },
+    {"alias": "Daily",
+        "id": "daily",
+        "columns": [
+            { "id": "summary", "dataType": "string" },
+            { "id": "icon", "dataType": "string" },
+            { "id": "time", "dataType": "int" },
+            { "id": "summary", "dataType": "string" },
+            { "id": "icon", "dataType": "string" },
+            { "id": "sunriseTime", "dataType": "int" },
+            { "id": "sunsetTime", "dataType": "int" },
+            { "id": "moonPhase", "dataType": "float" },
+            { "id": "precipIntensity", "dataType": "int" },
+            { "id": "precipIntensityMax", "dataType": "int" },
+            { "id": "precipProbability", "dataType": "int" },
+            { "id": "temperatureMin", "dataType": "float" },
+            { "id": "temperatureMinTime", "dataType": "int" },
+            { "id": "temperatureMax", "dataType": "float" },
+            { "id": "temperatureMaxTime", "dataType": "int" },
+            { "id": "apparentTemperatureMin", "dataType": "float" },
+            { "id": "apparentTemperatureMinTime", "dataType": "int" },
+            { "id": "apparentTemperatureMax", "dataType": "float" },
+            { "id": "apparentTemperatureMaxTime", "dataType": "int" },
+            { "id": "dewPoint", "dataType": "float" },
+            { "id": "humidity", "dataType": "float" },
+            { "id": "windSpeed", "dataType": "float" },
+            { "id": "windBearing", "dataType": "int" },
+            { "id": "visibility", "dataType": "float" },
+            { "id": "cloudCover", "dataType": "float" },
+            { "id": "pressure", "dataType": "float" },
+            { "id": "ozone", "dataType": "float" }
+        ]
+    },
+    {"alias": "Alerts",
+        "id": "alerts",
+        "columns": [
+            { "id": "title", "dataType": "string" },
+            { "id": "time", "dataType": "int" },
+            { "id": "expires", "dataType": "int" },
+            { "id": "description", "dataType": "string" },
+            { "id": "uri", "dataType": "string" }
+        ]
+    }
+]
