@@ -15,7 +15,7 @@
     myConnector.getSchema = function(schemaCallback) {
         console.log('Entering getSchema()');
         
-        $.getJSON("js/forecastioSchema.json", function(schemaJson) {
+        $.getJSON("./js/forecastioSchema.json", function(schemaJson) {
             console.log('Fetching schema from a file')
             schemaCallback(schemaJson);
         });
