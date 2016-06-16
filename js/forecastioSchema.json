@@ -11,6 +11,8 @@
     {"alias": "Current Weather",
         "id": "currently",
         "columns": [
+            {"id": "latitude", "dataType": "float"},
+            {"id": "longitude", "dataType": "float"},
             { "id": "time", "dataType": "int" },
             { "id": "summary", "dataType": "string" },
             { "id": "icon", "dataType": "string" },
@@ -39,6 +41,8 @@
     {"alias": "Minutely",
         "id": "minutely",
         "columns": [
+            {"id": "latitude", "dataType": "float"},
+            {"id": "longitude", "dataType": "float"},
             { "id": "time", "dataType": "int" },
             { "id": "precipIntensity", "dataType": "int" },
             { "id": "precipProbability", "dataType": "int" }
@@ -47,6 +51,8 @@
     {"alias": "Hourly",
         "id": "hourly",
         "columns": [
+            {"id": "latitude", "dataType": "float"},
+            {"id": "longitude", "dataType": "float"},
             { "id": "time", "dataType": "int" },
             { "id": "summary", "dataType": "string" },
             { "id": "icon", "dataType": "string" },
@@ -67,6 +73,8 @@
     {"alias": "Daily",
         "id": "daily",
         "columns": [
+            {"id": "latitude", "dataType": "float"},
+            {"id": "longitude", "dataType": "float"},
             { "id": "summary", "dataType": "string" },
             { "id": "icon", "dataType": "string" },
             { "id": "time", "dataType": "int" },
@@ -99,6 +107,8 @@
     {"alias": "Alerts",
         "id": "alerts",
         "columns": [
+            {"id": "latitude", "dataType": "float"},
+            {"id": "longitude", "dataType": "float"},
             { "id": "title", "dataType": "string" },
             { "id": "time", "dataType": "int" },
             { "id": "expires", "dataType": "int" },

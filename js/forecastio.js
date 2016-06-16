@@ -96,6 +96,8 @@
                         console.log('Starting to process Currently...');
                         console.log('Forecast.io returned the following for Currently: ' + JSON.stringify(data.currently));
                         currentlyRow = {
+                            "latitude": data.latitude,
+                            "longitude": data.longitude,
                             "time": dateToTableauDate(data.currently.time),
                             "summary": data.currently.summary,
                             "icon": data.currently.icon,
@@ -129,21 +131,21 @@
                         // Minutely Data
                         console.log('Starting to process Minutely...');
                         for (var i = 0; i < data.minutely.data.length; i++) {
-                            minutelyData.push(formatRow("minutely", data.minutely.data[i]));
+                            minutelyData.push(formatRow("minutely", data.latitude, data.longitude, data.minutely.data[i]));
                         }
                         console.log('Finished processing Minutely');
                         
                         // Hourly Data
                         console.log('Starting to process Hourly...');
                         for (var i = 0; i < data.hourly.data.length; i++) {
-                            hourlyData.push(formatRow("hourly", data.hourly.data[i]));
+                            hourlyData.push(formatRow("hourly", data.latitude, data.longitude, data.hourly.data[i]));
                         }
                         console.log('Finished processing Hourly');
                         
                         // Daily Data
                         console.log('Starting to process Daily...');
                         for (var i = 0; i < data.daily.data.length; i++) {
-                            dailyData.push(formatRow("daily", data.daily.data[i]));
+                            dailyData.push(formatRow("daily", data.latitude, data.longitude, data.daily.data[i]));
                         }
                         console.log('Finished processing Daily');
                         
@@ -151,7 +153,7 @@
                         if (data.alerts) {
                             console.log('Starting to process Alerts...');
                             for (var i = 0; i < data.alerts.length; i++) {
-                                alertsData.push(formatRow("alerts", data.alerts[i]));
+                                alertsData.push(formatRow("alerts", data.latitude, data.longitude, data.alerts[i]));
                             }
                             console.log('Finished processing Alerts');
                         } else {
@@ -196,11 +198,13 @@
 
     // formatRow
     //     Formats rows for the various tables per their schema
-    function formatRow(table, inputRow) {
+    function formatRow(table, lat, long, inputRow) {
         var row = {};
         switch (table) {
             case "minutely":
                 row = {
+                    "latitude": lat,
+                    "longitude": long,
                     "time": dateToTableauDate(inputRow.time),
                     "precipIntensity": inputRow.precipIntensity,
                     "precipProbability": inputRow.precipProbability
@@ -209,6 +213,8 @@
 
             case "hourly":
                 row = {
+                    "latitude": lat,
+                    "longitude": long,
                     "time": dateToTableauDate(inputRow.time),
                     "summary": inputRow.summary,
                     "icon": inputRow.icon,
@@ -229,6 +235,8 @@
 
             case "daily":
                 row = {
+                    "latitude": lat,
+                    "longitude": long,
                     "time": dateToTableauDate(inputRow.time),
                     "summary": inputRow.summary,
                     "sunriseTime": dateToTableauDate(inputRow.sunriseTime),
@@ -260,6 +268,8 @@
         
             default:                // alerts
                 row = {
+                    "latitude": lat,
+                    "longitude": long,
                     "title": inputRow.title,
                     "time": dateToTableauDate(inputRow.time),
                     "expires": dateToTableauDate(inputRow.expires),
@@ -278,70 +288,6 @@
       var tableauDate = moment.unix(dateToConvert).format("YYYY-MM-DD HH:mm:ss.SSS");   // Forecast.io timestaps are unix
       
       return tableauDate;
-    }
-
-    function TODO_DELETE() {
-        return false;
-        // function fetchForecast() {
-        //     var locationRow = {};
-        //     console.log('fetchForecast');
-            
-        //     // local...
-        //     // $.getJSON("js/forecastData.json", function(data) {
-
-            
-        //     // forecast.io not set-up for CORS so using JSONP to get the data
-        //     $.getJSON(tableau.connectionData + "?callback=?", function(data) {
-        //         // We've got data so format & send to Tableau
-        //         if(data) {
-        //             console.log('We have data!!!!');
-        //             console.log(JSON.stringify(data));
-                    
-        //             // TODO use this for other tables -> var daily = data.daily.data;
-        //             locationRow.latitude = data.latitude;
-        //             locationRow.longitude = data.longitude;
-        //             locationRow.timezone = data.timezone;
-        //             locationRow.offset = data.offset;
-                    
-        //             locationData.push(locationRow);
-        //             console.log('Location data done...');
-                    
-        //             // // Currently Data
-        //             // console.log('Starting to process Currently...');
-        //             // processCurrentlyData(data.currently);
-        //             // console.log('Finished processing Currently');
-                    
-        //             // // Minutely Data
-        //             // console.log('Starting to process Minutely...');
-        //             // processMinutelyData(data.minutely.data);
-        //             // console.log('Finished processing Minutely');
-                    
-        //             // // Hourly Data
-        //             // console.log('Starting to process Hourly...');
-        //             // processHourlyData(data.hourly.data);
-        //             // console.log('Finished processing Hourly');
-                    
-        //             // // Daily Data
-        //             // console.log('Starting to process Daily...');
-        //             // processDailyData(data.daily.data);
-        //             // console.log('Finished processing Daily');
-                    
-        //             // // Alerts
-        //             // console.log('Starting to process Alerts...');
-        //             // if (data.alerts) {
-        //             //     processAlerts(data.alerts);
-        //             // }
-        //             // console.log('Finished processing Alerts');
-                    
-        //             console.log('Returning locationData');
-        //             return locationData;
-                
-        //         } else {
-        //             tableau.log("error getting data");
-        //             tableau.abortWithError("error getting data from forecast.io");
-        //         }
-        //     });
-        // }
     }
     
     // --------------------------------------------------------------------------------
