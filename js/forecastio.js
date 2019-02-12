@@ -184,7 +184,7 @@
       var apiKey = 'a328cf110f5d0b477e730b71c2cde8de';
       
       // Construct our URL for the API call
-      var url = 'https://api.forecast.io/forecast/' + apiKey + '/' + latitude + ',' + longitude;
+      var url = 'https://api.darksky.net/forecast/' + apiKey + '/' + latitude + ',' + longitude;
       
       tableau.connectionData = url;
       tableau.connectionName = 'Forecast.io Weather Data for ' + latitude + ' ' + longitude;
